@@ -1,0 +1,35 @@
+﻿@model Fleko2.Models.TransactionContainerModel
+@{
+    ViewBag.Title = "Editor";
+}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="chartfx.css" />
+    <script type="text/javascript" src="jChartFX/jchartfx.system.js"></script>
+    <script type="text/javascript" src="jChartFX/jchartfx.coreVector.js"></script>
+</head>
+
+<h2>Editor</h2>
+
+<script>
+
+
+</script>
+
+<table>
+    @foreach(var transaction in Model.Transactions)
+    {
+        <tr>
+            <td>@transaction.TransactionDate.ToShortDateString()</td>
+            <td>@transaction.Amount</td>
+            <td>@transaction.Description</td>
+            <td>@Html.TextBox("Tags", transaction.Tags, new Dictionary<string, object> { 
+                { "onfocusout", "jquery.ajax"}
+            }
+            )</td>
+        </tr>
+    }
+
+    
+
+</table>
